@@ -2,6 +2,10 @@ package com.harusame.template.mapper;
 
 import com.harusame.template.domain.pojo.Cart;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.harusame.template.domain.vo.CartVo;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
 * @author ggzst

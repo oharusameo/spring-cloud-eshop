@@ -57,7 +57,7 @@ public class GlobalExceptionHandler {
         if (e.getStatusCode() == null) {
             return Result.error(HTTP_INTERNAL_ERROR, e.getMessage());
         }
-        return Result.error(HTTP_INTERNAL_ERROR, e.getMessage());
+        return Result.error(e.getStatusCode(), e.getMessage());
     }
 
     @ExceptionHandler(DuplicateKeyException.class)

@@ -5,10 +5,12 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.harusame.template.domain.dto.LoginDTO;
 import com.harusame.template.domain.pojo.User;
+import com.harusame.template.domain.vo.UserVo;
 import com.harusame.template.exception.BusinessException;
 import com.harusame.template.service.UserService;
 import com.harusame.template.mapper.UserMapper;
 import com.harusame.template.utils.TokenUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -38,13 +40,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     }
 
     @Override
-    public User getUserInfo() {
+    public UserVo getUserInfo() {
         String userId = tokenUtils.getUserIdFromHeader();
         User user = userMapper.selectOne(new QueryWrapper<User>().eq("id", userId).select("id", "username", "telephone"));
         if (user == null) {
             throw new BusinessException("用户不存在");
         }
-        return user;
+        UserVo userVo = new UserVo();
+        BeanUtils.copyProperties(user, userVo);
+        return userVo;
     }
 
 

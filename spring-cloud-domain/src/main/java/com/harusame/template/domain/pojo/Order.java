@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 import lombok.Data;
 
 /**
@@ -36,7 +38,7 @@ public class Order implements Serializable {
      * 订单总价
      */
     @TableField(value = "total_price")
-    private Integer totalPrice;
+    private BigDecimal totalPrice;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

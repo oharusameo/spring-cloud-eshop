@@ -3,7 +3,7 @@ package com.harusame.template.api;
 import cn.dev33.satoken.annotation.SaCheckLogin;
 import com.harusame.template.domain.dto.LoginDTO;
 import com.harusame.template.domain.pojo.Result;
-import com.harusame.template.domain.pojo.User;
+import com.harusame.template.domain.vo.UserVo;
 import com.harusame.template.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,10 +30,9 @@ public class UserApi {
 
     @GetMapping("/getUserInfo")
     @ApiOperation("获取用户信息接口")
-    @SaCheckLogin
     public Result getUserInfo(@ApiParam(name = "token", value = "身份认证令牌")
                               @RequestHeader String token) {
-        User user = userService.getUserInfo();
+        UserVo user = userService.getUserInfo();
         return Result.success(user);
     }
 

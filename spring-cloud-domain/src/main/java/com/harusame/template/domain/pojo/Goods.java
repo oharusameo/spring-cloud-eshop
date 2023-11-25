@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 import lombok.Data;
 
 /**
@@ -30,7 +32,7 @@ public class Goods implements Serializable {
      * 
      */
     @TableField(value = "goods_price")
-    private Integer goodsPrice;
+    private BigDecimal goodsPrice;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

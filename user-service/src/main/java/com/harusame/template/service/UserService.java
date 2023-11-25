@@ -3,6 +3,7 @@ package com.harusame.template.service;
 import com.harusame.template.domain.dto.LoginDTO;
 import com.harusame.template.domain.pojo.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.harusame.template.domain.vo.UserVo;
 
 /**
 * @author ggzst
@@ -13,6 +14,6 @@ public interface UserService extends IService<User> {
 
     String login(LoginDTO loginDTO);
 
-    User getUserInfo();
+    UserVo getUserInfo();
 
 }
