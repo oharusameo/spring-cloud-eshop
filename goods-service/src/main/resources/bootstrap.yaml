@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: goods-service
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      config:
+        file-extension: yaml
+        namespace: goods-service-dev
+      discovery:
+        namespace: spring-cloud-service
+
